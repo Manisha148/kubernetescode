@@ -24,14 +24,17 @@ agent any
       }
 
 
- 	stage('Push image') {
-    steps{
-      script{
-        sh 'docker push vishal7500/demo:latest'
-      }
-    }
-  }
-        
+stage('Push Docker') {
+            agent any
+            steps {
+                echo 'Push Docker'
+                script {
+                    docker.withRegistry('https://registry.hub.docker.com', registryCredential) {
+                        dockerImage.push("${env.BUILD_NUMBER}") 
+                        dockerImage.push('latest')
+                    }
+                }
+            }  
 
       
 //    }
