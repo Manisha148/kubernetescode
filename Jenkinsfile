@@ -24,7 +24,7 @@ agent any
       }
 
 
-stage('Push Docker') {
+ stage('Push Docker') {
             agent any
             steps {
                 echo 'Push Docker'
