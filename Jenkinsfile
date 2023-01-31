@@ -19,10 +19,10 @@ pipeline{
                 docker.build -t vishal7500/demo .
              }   
             }
+    
   
        
-    }
-
+   
     // stage('Test image') {
   
 
