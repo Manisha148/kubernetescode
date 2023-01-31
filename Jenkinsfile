@@ -17,7 +17,7 @@ agent any
  stage('Building image') {
    steps{
        script {
-          sh 'docker build -t test .'
+          sh 'docker build -t javaimg .'
           }
         }
       }
@@ -26,8 +26,11 @@ agent any
  	stage('Push') {
 
 		steps {
-			sh 'docker push manishaverma/test:latest'
-			}
+// 			sh 'docker push manishaverma/javaimg:latest'
+// 			}
+	    docker.withRegistry('https://registry.hub.docker.com', 'dockerhub') {
+            app.push("${env.BUILD_NUMBER}")
+        }
 		}
       
 //    }
