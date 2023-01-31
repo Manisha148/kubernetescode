@@ -3,7 +3,7 @@ pipeline {
     dockerhubb = 'https://registry.hub.docker.com'
     dockerhubCredential = 'docker'
     dockerImage = ''
-    SCANNER_HOME = tool 'sonar'
+    SCANNER_HOME = tool 'sonarscanner'
     //EMAIL_TO = 'ravali.ganigapeta@testingxperts.com'
   }
 agent any
@@ -47,10 +47,10 @@ agent any
          
   stage('Sonarqube') {
       environment {
-     scannerHome = tool 'sonar'
+     scannerHome = tool 'sonarscanner'
      }
     steps {
-         withSonarQubeEnv('sonar') {
+         withSonarQubeEnv('productionsonarqubescanner') {
          sh "${scannerHome}/bin/sonar-scanner"
             }
          }
