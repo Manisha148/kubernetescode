@@ -22,19 +22,11 @@ agent any
           }
         }
       }
-
-
- stage('Push Docker') {
-            agent any
-            steps {
-                echo 'Push Docker'
-                script {
-                    docker.withRegistry('https://registry.hub.docker.com', registryCredential) {
-                        dockerImage.push("${env.BUILD_NUMBER}") 
-                        dockerImage.push('latest')
-                    }
-                }
-            }  
+ stage('Push image') {
+        withDockerRegistry([ credentialsId: "dockerhubaccount", url: "" ]) {
+        dockerImage.push()
+        }
+    }    
 
       
 //    }
