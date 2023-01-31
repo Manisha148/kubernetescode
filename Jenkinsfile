@@ -47,10 +47,10 @@ agent any
          
   stage('Sonarqube') {
       environment {
-     scannerHome = tool 'sonarscanner'
+     scannerHome = tool 'sonar'
      }
     steps {
-         withSonarQubeEnv('productionsonarqubescanner') {
+         withSonarQubeEnv('sonar') {
          sh "${scannerHome}/bin/sonar-scanner"
             }
          }
