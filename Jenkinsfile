@@ -24,13 +24,12 @@ agent any
       }
 
 
- 	stage('Push') {
-
-		steps {
-//          		sh 'docker tag demo vishal7500/demo:latest'
-			sh 'docker push vishal7500/demo:latest'
-			}
-		}
+ 	stage('Push image') {
+        
+//         docker.withRegistry('https://registry.hub.docker.com', 'dockerhub') {
+//             app.push("${env.BUILD_NUMBER}")
+//         }
+//     }
       
 //    }
 //  stage('Push Image') {
