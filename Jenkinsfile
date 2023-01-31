@@ -54,8 +54,7 @@ pipeline{
                 build job: 'ManifestUpdate', parameters: [string(name: 'DOCKERTAG', value: env.BUILD_NUMBER)]
         }
      
-}
-}
+
 // node {
 //     def app
 
