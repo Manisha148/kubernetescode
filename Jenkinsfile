@@ -23,12 +23,12 @@ agent any
       }
 
 
- 	stage('Push') {
+//  	stage('Push') {
 
-		steps {
-			sh 'docker push manishaverma/javaimg'
-			}
-		}
+// 		steps {
+// 			sh 'docker push manishaverma/javaimg'
+// 			}
+// 		}
       
 //    }
 //  stage('Push Image') {
