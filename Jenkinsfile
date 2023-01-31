@@ -9,7 +9,7 @@ node {
 
     stage('Build image') {
   
-       app = docker.build("manishaverma/test")
+       app = docker.build("vishal7500/demo")
     }
 
     stage('Test image') {
@@ -26,6 +26,16 @@ node {
             app.push("${env.BUILD_NUMBER}")
         }
     }
+     stage('Sonarqube') {
+      environment {
+     scannerHome = tool 'sonar'
+     }
+    steps {
+         withSonarQubeEnv('productionsonarqubescanner') {
+         sh "${scannerHome}/bin/sonar-scanner"
+            }
+         }
+      }
     
     stage('Trigger ManifestUpdate') {
                 echo "triggering updatemanifestjob"
