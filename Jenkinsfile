@@ -26,7 +26,7 @@ agent any
  	stage('Push') {
 
 		steps {
-			sh 'docker push manishaverma/deployrepo'
+			sh 'docker push manishaverma/deployrepo:7'
 			}
 		}
       
