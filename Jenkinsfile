@@ -27,8 +27,8 @@ agent any
  	stage('Push') {
 
 		steps {
-         		sh 'docker tag demo vishal7500/demo:latest'
-			sh 'docker push vishal7500/demo:latest'
+//          		sh 'docker tag demo vishal7500/demo:latest'
+			sh 'docker push vishal7500/demo:14'
 			}
 		}
       
