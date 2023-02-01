@@ -3,7 +3,7 @@ pipeline {
     dockerhubb = 'https://registry.hub.docker.com'
     dockerhubCredential = 'docker'
     dockerImage = ''
-    SCANNER_HOME = tool 'SonarQubeScanner'
+    SCANNER_HOME = tool 'sonarscanner'
     //EMAIL_TO = 'ravali.ganigapeta@testingxperts.com'
   }
 agent any
@@ -43,14 +43,15 @@ agent any
 //          sh 'docker login -u admin -p ravali 18.212.25.74:8001/repository/k8s-task/' 
 //          sh 'docker push 18.212.25.74:8001/repository/k8s-task/flask:8.0'
 //          sh 'docker logout http://18.212.25.74:8001/repository/k8s-task/'
-      stage('Static Code Analysis') {
-            steps {
-                    // SAST
-//                     sh './gradlew sonarqube \
-  -Dsonar.projectKey=sonarproject \
-  -Dsonar.host.url= 54.172.254.122:9000
-  -Dsonar.login=6d7770742db582320337de9085e62b590019940f  
+      stage('Sonarqube') {
+      environment {
+     scannerHome = tool 'sonarscanner'
+     }
+    steps {
+         withSonarQubeEnv('productionsonarqubescanner') {
+         sh "${scannerHome}/bin/sonar-scanner"
             }
+         }
       }
          
 //   stage('Sonarqube') {
