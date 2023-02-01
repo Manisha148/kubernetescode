@@ -51,7 +51,7 @@ agent any
      }
     steps {
          withSonarQubeEnv('SonarQube') {
-         sh "${scannerHome}/bin/SonarQube"
+         sh "${scannerHome}/bin"
             }
          }
       }
