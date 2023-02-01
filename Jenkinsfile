@@ -47,7 +47,7 @@ agent any
          
   stage('Sonarqube') {
       environment {
-     scannerHome = tool 'SonarQube'
+     scannerHome = tool 'sonar-scanner'
      }
     steps {
          withSonarQubeEnv('SonarQube') {
