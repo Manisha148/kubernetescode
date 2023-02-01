@@ -49,7 +49,7 @@ agent any
      }
     steps {
          withSonarQubeEnv('productionsonarqubescanner') {
-         sh "${scannerHome}/opt/sonarqube/conf"
+//          sh "${scannerHome}/opt/sonarqube/conf"
             }
          }
       }
