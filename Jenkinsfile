@@ -49,7 +49,7 @@ agent any
 //                     sh './gradlew sonarqube \
   -Dsonar.projectKey=sonarproject \
   -Dsonar.host.url= http:/54.172.254.122:9000\
-  -Dsonar.login=6d7770742db582320337de9085e62b590019940f'   
+  -Dsonar.login=6d7770742db582320337de9085e62b590019940f  
             }
       }
          
