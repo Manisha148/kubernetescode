@@ -50,9 +50,9 @@ agent any
      scannerHome = tool 'SonarQube'
      }
     steps {
-         withSonarQubeEnv('SonarQube') {
-         sh "${scannerHome}/opt/sonarqube/conf"
-            }
+         withSonarQubeEnv('sonarqube') {
+         sh "${scannerHome}/opt/sonarqube/conf/sonar.properties"  
+          }
          }
       }
     stage('slack notification') {
