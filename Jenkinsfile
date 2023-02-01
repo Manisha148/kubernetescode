@@ -47,10 +47,10 @@ agent any
          
   stage('Sonarqube') {
       environment {
-     scannerHome = tool 'sonarscanner'
+     scannerHome = tool 'SonarQube'
      }
     steps {
-         withSonarQubeEnv('My SonarQube Server , envOnly: true') {
+         withSonarQubeEnv('SonarQube') {
          sh "${scannerHome}/bin/sonar-scanner"
             }
          }
