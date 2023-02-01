@@ -48,22 +48,13 @@ agent any
      scannerHome = tool 'sonarscanner'
      }
     steps {
-         withSonarQubeEnv('productionsonarqubescanner') {
-//          sh "${scannerHome}/opt/sonarqube/conf"
+         withSonarQubeEnv('sonarscanner') {
+//          sh "${scannerHome}/bin/sonar-scanner"
             }
          }
       }
-         
-//   stage('Sonarqube') {
-//       environment {
-//      scannerHome = tool 'SonarQubeScanner'
-//      }
-//     steps {
-//          withSonarQubeEnv('Production SonarQubeScanner') {
-//          sh "${scannerHome}/opt/sonarqube"
-//           }
-//          }
-//       }
+       
+
     stage('slack notification') {
        steps{
            slackSend channel: 'kubernetes-task', color: 'good', message: 'welcome to slack', teamDomain: 'testingxperts', tokenCredentialId: 'sl-nt'  
