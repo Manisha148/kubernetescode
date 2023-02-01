@@ -43,18 +43,26 @@ agent any
 //          sh 'docker login -u admin -p ravali 18.212.25.74:8001/repository/k8s-task/' 
 //          sh 'docker push 18.212.25.74:8001/repository/k8s-task/flask:8.0'
 //          sh 'docker logout http://18.212.25.74:8001/repository/k8s-task/'
-         
-         
-  stage('Sonarqube') {
-      environment {
-     scannerHome = tool 'SonarQubeScanner'
-     }
-    steps {
-         withSonarQubeEnv('Production SonarQubeScanner') {
-         sh "${scannerHome}/opt/sonarqube"
-          }
-         }
+      stage('Static Code Analysis') {
+            steps {
+                    // SAST
+//                     sh './gradlew sonarqube \
+  -Dsonar.projectKey=sonarproject \
+  -Dsonar.host.url= http://54.172.254.122:9000\
+  -Dsonar.login=6d7770742db582320337de9085e62b590019940f'   
+            }
       }
+         
+//   stage('Sonarqube') {
+//       environment {
+//      scannerHome = tool 'SonarQubeScanner'
+//      }
+//     steps {
+//          withSonarQubeEnv('Production SonarQubeScanner') {
+//          sh "${scannerHome}/opt/sonarqube"
+//           }
+//          }
+//       }
     stage('slack notification') {
        steps{
            slackSend channel: 'kubernetes-task', color: 'good', message: 'welcome to slack', teamDomain: 'testingxperts', tokenCredentialId: 'sl-nt'  
