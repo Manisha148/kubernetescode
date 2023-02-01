@@ -48,7 +48,7 @@ agent any
      scannerHome = tool 'sonarscanner'
      }
     steps {
-         withSonarQubeEnv('sonarscanner') {
+         withSonarQubeEnv('productionsonarqubescanner') {
 //          sh "${scannerHome}/bin/sonar-scanner"
             }
          }
