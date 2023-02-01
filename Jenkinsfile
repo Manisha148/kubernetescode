@@ -3,7 +3,7 @@ pipeline {
     dockerhubb = 'https://registry.hub.docker.com'
     dockerhubCredential = 'docker'
     dockerImage = ''
-    SCANNER_HOME = tool 'SonarQube'
+    SCANNER_HOME = tool 'sonar-scanner'
     //EMAIL_TO = 'ravali.ganigapeta@testingxperts.com'
   }
 agent any
