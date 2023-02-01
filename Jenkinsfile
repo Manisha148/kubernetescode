@@ -50,7 +50,7 @@ agent any
      scannerHome = tool 'SonarQube'
      }
     steps {
-         withSonarQubeEnv('sonarqube') {
+         withSonarQubeEnv('SonarQube') {
          sh "${scannerHome}/opt/sonarqube/conf/sonar.properties"  
           }
          }
