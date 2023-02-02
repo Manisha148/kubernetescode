@@ -47,7 +47,7 @@ agent any
         steps{
           sonar-scanner \
   -Dsonar.projectKey=SonarScanner \
-  -Dsonar.host.url=http://54.242.149.49:9000 \
+  -Dsonar.host.url= "http://54.242.149.49:9000"
   -Dsonar.login=82c7d0fae00ace34a052c72a95c98c4196b742cb
         }
         
