@@ -59,7 +59,7 @@ agent any
 
     stage('slack notification') {
        steps{
-           slackSend channel: 'slacknotification', tokenCredentialId: '539f81c4-5b28-4022-be8b-9983eb5e6eb0'  
+           slackSend channel: 'slacknotification', slackSend color: "good", message: "Message from Jenkins Pipeline" , tokenCredentialId: '539f81c4-5b28-4022-be8b-9983eb5e6eb0'  
            }
         }
 //     stage('selenium-test') {
