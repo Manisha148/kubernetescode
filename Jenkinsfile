@@ -57,11 +57,11 @@ agent any
 
        
 
-//     stage('slack notification') {
-//        steps{
-//            slackSend channel: 'kubernetes-task', color: 'good', message: 'welcome to slack', teamDomain: 'testingxperts', tokenCredentialId: 'sl-nt'  
-//            }
-//         }
+    stage('slack notification') {
+       steps{
+           slackSend channel: 'kubernetes-task', color: 'good', message: 'welcome to slack', teamDomain: 'testingxperts', tokenCredentialId: 'sl-nt'  
+           }
+        }
 //     stage('selenium-test') {
 //       steps {
 //           sh 'mvn validate -P parallel'   
