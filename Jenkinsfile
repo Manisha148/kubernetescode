@@ -43,17 +43,18 @@ agent any
 //          sh 'docker login -u admin -p ravali 18.212.25.74:8001/repository/k8s-task/' 
 //          sh 'docker push 18.212.25.74:8001/repository/k8s-task/flask:8.0'
 //          sh 'docker logout http://18.212.25.74:8001/repository/k8s-task/'
-      stage('Sonarqube') {
-        steps{
-          sonar-scanner \
-  -Dsonar.projectKey='SonarScanner'
-  -Dsonar.host.url= "http://54.242.149.49:9000"
-  -Dsonar.login= 82c7d0fae00ace34a052c72a95c98c4196b742cb
-        }
-        
-        
-      
-      }
+      	stage('SonarQube analysis') {
+    		
+    		steps {
+    			withSonarQubeEnv(credentialsId: 'SonarQubeToken', installationName: 'Production SonarQubeScanner') {
+         			sh '''$SCANNER_HOME/bin/sonar-scanner \
+         			-Dsonar.projectKey=SonarScanner \
+         			-Dsonar.projectName=SonarScanner \
+         			-Dsonar.projectVersion=${BUILD_NUMBER}-${GIT_COMMIT_SHORT}'''
+       			}
+     		}
+  	}
+
        
 
 //     stage('slack notification') {
