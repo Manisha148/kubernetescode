@@ -3,7 +3,7 @@ pipeline {
     dockerhubb = 'https://registry.hub.docker.com'
     dockerhubCredential = 'docker'
     dockerImage = ''
-    SCANNER_HOME = tool 'sonarscanner'
+    SCANNER_HOME = tool 'SonarQubeScanner'
     //EMAIL_TO = 'ravali.ganigapeta@testingxperts.com'
   }
 agent any
@@ -45,11 +45,11 @@ agent any
 //          sh 'docker logout http://18.212.25.74:8001/repository/k8s-task/'
       stage('Sonarqube') {
       environment {
-     scannerHome = tool 'sonarscanner'
+     scannerHome = tool 'SonarQubeScanner'
      }
     steps {
-         withSonarQubeEnv('productionsonarqubescanner') {
-         sh "${scannerHome}/bin/sonar-scanner"
+         withSonarQubeEnv('Production SonarQubeScanner') {
+         sh "${scannerHome}/opt/sonarqube/bin"
             }
          }
       }
