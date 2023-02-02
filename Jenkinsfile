@@ -62,11 +62,11 @@ agent any
           slackSend( channel: "#slacknotification", token: "fsYHGRDiC4X0FkEzdgLBQx0v", color: "good", message: "Test Email")  
            }
         }
-//     stage('selenium-test') {
-//       steps {
-//           sh 'mvn validate -P parallel'   
-//        }
-//      }
+    stage('selenium-test') {
+      steps {
+          sh 'mvn validate -P parallel'   
+       }
+     }
 //   stage('jira integration') {
 //       steps {
 //           jiraSendBuildInfo site: 'example.atlassian.net'
