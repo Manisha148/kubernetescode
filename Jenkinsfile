@@ -59,7 +59,7 @@ agent any
 
     stage('slack notification') {
        steps{
-           slackSend channel: '#slacknotification', color: 'good', message: 'welcome to slack', teamDomain: 'testingxperts-opw5222', tokenCredentialId: 'fsYHGRDiC4X0FkEzdgLBQx0v'  
+          slackSend( channel: "#slacknotification", token: "fsYHGRDiC4X0FkEzdgLBQx0v", color: "good", message: "Test Email")  
            }
         }
 //     stage('selenium-test') {
