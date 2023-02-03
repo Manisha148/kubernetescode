@@ -67,11 +67,11 @@ agent any
           sh 'mvn validate -P parallel'   
        }
      }
-//   stage('jira integration') {
-//       steps {
-//           jiraSendBuildInfo site: 'example.atlassian.net'
-//            }
-//         }
+  stage('jira integration') {
+      steps {
+          jiraSendBuildInfo site: 'example.atlassian.net'
+           }
+        }
 //   stage('Email-Notification') {
 //       steps {
 //          emailext mimeType: 'text/html',               
