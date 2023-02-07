@@ -69,11 +69,11 @@ agent any
      }
   stage('jira integration') {
       steps {
-          jiraSendBuildInfo site: 'example.atlassian.net'
+          jiraSendBuildInfo site: 'http://35.175.110.109:8080/'
            }
         }
 //   stage('Email-Notification') {
-//       steps {
+//   example.atlassian.net    steps {
 //          emailext mimeType: 'text/html',               
 //          subject: "[Jenkins]${currentBuild.fullDisplayName}",               
 //          to:" ravali.ganigapeta@testingxperts.com",             
