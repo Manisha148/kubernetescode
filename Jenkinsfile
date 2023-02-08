@@ -69,7 +69,7 @@ agent any
      }
   stage('Run test') {
     steps {
-        sh 'jmeter -n -t jenkins.jmx -l results.jtl'
+        sh 'jmeter -n -t /home/ubuntu/jmeter/bin/jenkins.jmx -l results.jtl'
     }
     }
 //   stage('Email-Notification') {
