@@ -68,7 +68,9 @@ agent any
        }
      }
   stage('Run test') {
+    steps {
         sh 'jmeter -n -t jenkins.jmx -l results.jtl'
+    }
     }
 //   stage('Email-Notification') {
 //       steps {
