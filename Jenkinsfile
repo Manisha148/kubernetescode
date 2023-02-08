@@ -67,11 +67,9 @@ agent any
           sh 'mvn validate -P parallel'   
        }
      }
-  stage('jira integration') {
-      steps {
-          jiraSendBuildInfo site: 'example.atlassian.net'
-           }
-        }
+  stage('Run test') {
+        sh 'jmeter -n -t jenkins.jmx -l results.jtl'
+    }
 //   stage('Email-Notification') {
 //       steps {
 //          emailext mimeType: 'text/html',               
