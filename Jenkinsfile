@@ -72,6 +72,16 @@ agent any
         sh 'jmeter -n -t /home/ubuntu/jmeter/bin/jenkins.jmx -l results.jtl'
     }
     }
+    stage('Unit Testing') {
+            steps{
+                    junit(testResults: 'build/test-results/test/*.xml', allowEmptyResults : true, skipPublishingChecks: true)
+            }
+            post {
+                success {
+                    publishHTML([allowMissing: false, alwaysLinkToLastBuild: false, keepAll: false, reportDir: 'build/reports/tests/test/', reportFiles: 'index.html', reportName: 'HTML Report', reportTitles: '', useWrapperFileDirectly: true])
+        }
+      }
+    }
 //   stage('Email-Notification') {
 //       steps {
 //          emailext mimeType: 'text/html',               
