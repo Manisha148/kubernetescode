@@ -67,21 +67,21 @@ agent any
           sh 'mvn validate -P parallel'   
        }
      }
-  stage('Run test') {
-    steps {
-        sh 'jmeter -n -t /home/ubuntu/jmeter/bin/jenkins.jmx -l results.jtl'
-    }
-    }
-    stage('Unit Testing') {
-            steps{
-                    junit(testResults: 'build/test-results/test/*.xml', allowEmptyResults : true, skipPublishingChecks: true)
-            }
-            post {
-                success {
-                    publishHTML([allowMissing: false, alwaysLinkToLastBuild: false, keepAll: false, reportDir: 'build/reports/tests/test/', reportFiles: 'index.html', reportName: 'HTML Report', reportTitles: '', useWrapperFileDirectly: true])
-        }
-      }
-    }
+//   stage('Run test') {
+//     steps {
+//         sh 'jmeter -n -t /home/ubuntu/jmeter/bin/jenkins.jmx -l results.jtl'
+//     }
+//     }
+//     stage('Unit Testing') {
+//             steps{
+//                     junit(testResults: 'build/test-results/test/*.xml', allowEmptyResults : true, skipPublishingChecks: true)
+//             }
+//             post {
+//                 success {
+//                     publishHTML([allowMissing: false, alwaysLinkToLastBuild: false, keepAll: false, reportDir: 'build/reports/tests/test/', reportFiles: 'index.html', reportName: 'HTML Report', reportTitles: '', useWrapperFileDirectly: true])
+//         }
+//       }
+//     }
 //   stage('Email-Notification') {
 //       steps {
 //          emailext mimeType: 'text/html',               
@@ -92,11 +92,11 @@ agent any
 //          sh 'docker build -t flask:8.0 .'
 //              }
 //           }
-//   stage('Jmeter-test_reports') {
-//       steps {
-//         sh "/bin/python3 -m bzt.cli test.yml"
-//       }
-//    }
+  stage('Jmeter-test_reports') {
+      steps {
+        sh "/bin/python3 -m bzt.cli test.yml"
+      }
+   }
      stage('Trigger ManifestUpdate') {
         steps {
                 echo "triggering updatemanifestjob"
