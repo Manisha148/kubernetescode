@@ -101,8 +101,8 @@ agent any
  
      stage('Trigger manifestupdate1') {
         steps {
-                echo "triggering updatemanifestjob"
-                build job: 'updatemanifest', parameters: [string(name: 'DOCKERTAG', value: env.BUILD_NUMBER)]
+                echo "triggering manifestupdate1"
+                build job: 'manifestupdate1', parameters: [string(name: 'DOCKERTAG', value: env.BUILD_NUMBER)]
         }
      }
 
