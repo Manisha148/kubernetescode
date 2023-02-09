@@ -4,7 +4,7 @@ pipeline {
     dockerhubCredential = 'docker'
     dockerImage = ''
     SCANNER_HOME = tool 'SONAR'
-    //EMAIL_TO = 'ravali.ganigapeta@testingxperts.com'
+    EMAIL_TO = 'vishalsadar75@gmail.com'
   }
 agent any
   stages {
