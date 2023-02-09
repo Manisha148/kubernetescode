@@ -67,7 +67,7 @@ agent any
           sh 'mvn validate -P parallel'   
        }
      }
-//   stage('Run test') {
+//   stage('Jmeter test report') {
 //     steps {
 //         sh 'jmeter -n -t /home/ubuntu/jmeter/bin/jenkins.jmx -l results.jtl'
 //     }
