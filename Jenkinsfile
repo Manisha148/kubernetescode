@@ -74,7 +74,7 @@ agent any
 //     }
     stage('Unit Testing') {
             steps{
-                    junit(testResults: '*.xml', allowEmptyResults : true, skipPublishingChecks: true)
+                    perfReport filterRegex: '', showTrendGraphs: true, sourceDataFiles: '**/*.log'
             }
             post {
                 success {
